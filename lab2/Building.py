@@ -1,0 +1,31 @@
+from Elevator import Elevator
+from Controller import Controller
+
+class Building:
+    def __init__(self, num_floors, elevators_positions):
+        self.num_floors = num_floors
+        self.dispatcher = Dispatcher(num_floors)  # Создаем диспетчер этажей
+        self.elevators = [Elevator(pos, self.dispatcher) for pos in elevators_positions]
+        self.controller = Controller(self.elevators)
+
+    def process_request(self, pickup_floor, target_floor):
+        moves, elevator = self.controller.handle_request(pickup_floor, target_floor)
+        return moves, elevator
+
+
+class InvalidFloorError(Exception):
+    """Исключение для недопустимых этажей."""
+    pass
+
+
+class Dispatcher:
+    def __init__(self, max_floor):
+        self.correct_floors = {floor: floor for floor in range(1, max_floor + 1)}
+
+    def get_floor(self, floor):
+        try:
+            """Вернет этаж."""
+            return self.correct_floors[floor] 
+        except KeyError:
+            """Исключение для некорректного этажа"""
+            raise InvalidFloorError(f"Этаж {floor} недопустим.")
