@@ -1,0 +1,13 @@
+lexer grammar ExprLexer;
+
+DO: 'do';
+WHEN: 'when';
+ADD: 'add';
+AS: 'as';
+ABLE: 'able';
+INCLUDE: 'include';
+FROM: 'from';
+
+ID: [a-zA-Z_]+ ;
+
+WS: [ \t\n\r\f]+ -> skip ;

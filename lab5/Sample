@@ -1,0 +1,46 @@
+add SpaceShip
+add SpaceShip as SpaceshipOne
+add SpaceShip as SpaceshipTwo
+
+SpaceShip able Restart
+SpaceShip able Forward
+SpaceShip able Back
+SpaceShip able RotateL
+SpaceShip able RotateR
+SpaceShip able Shot
+SpaceShip able Collect
+SpaceShip able Destroid
+
+SpaceShipOne able Forward
+SpaceShipOne able Back
+SpaceShipOne able RotateL
+SpaceShipOne able RotateR
+SpaceShipOne able Shot
+SpaceShipOne able Collect
+SpaceShipOne able Destroid
+SpaceShipOne able Restart
+
+SpaceShipTwo able Forward
+SpaceShipTwo able Back
+SpaceShipTwo able RotateL
+SpaceShipTwo able RotateR
+SpaceShipTwo able ShotLaunch
+SpaceShipTwo able Collect
+SpaceShipTwo able Destroid
+SpaceShipTwo able Restart
+
+Shot include Shoot
+Forward include Move
+RotateL include Rotate
+RotateR include Rotate
+
+FuelLose from Move
+SpaceShipBeDestroid from CheckCollision
+BeDestroid from CheckCollision
+LeftWreckage from PirateBeDestroid
+LeftWreckage from SpaceShipBeDestroid
+Restart from SpaceShipBeDestroid
+Resstar from PirateBeDestroid
+
+Game do CheckCollision when Move
+Game include CheckWinner

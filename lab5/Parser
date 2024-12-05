@@ -1,0 +1,24 @@
+parser grammar ExprParser;
+options { tokenVocab=ExprLexer; }
+
+game: (
+doAction
+|
+addAction
+|
+ableAction
+|
+includeAction
+|
+fromAction
+)+;
+
+doAction: ID DO ID (WHEN ID)*;
+
+addAction: ADD ID (AS ID)*;
+
+ableAction: ID ABLE ID;
+
+includeAction: ID INCLUDE ID;
+
+fromAction: ID FROM ID;
