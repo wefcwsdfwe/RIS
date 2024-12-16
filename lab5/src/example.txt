@@ -1,0 +1,7 @@
+Game actions StartGame, StopGame;
+Player qwe actions StartMove, StopMove, StartTurnLeft, StartTurnRight, StopTurn, Shoot;
+StartMove includes MoveCommand, StartCommand;
+StartTurnLeft includes MoveCommand, StartCommand;
+StartTurnRight includes MoveCommand, StartCommand;
+Move includes BurnFuelCommand, CollisionDetectionCommand;
+do BurnFuelCommand before MoveCommand;
